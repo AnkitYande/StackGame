@@ -229,6 +229,19 @@ function missedTheSpot() {
 }
 
 function endGame() {
+  const y = camera.position.y
+  const aspect = window.innerWidth / window.innerHeight;
+  const height = (20+ y/2)/aspect;
+  const width = height * aspect;
+  camera = new THREE.OrthographicCamera(
+    width / -2, // left
+    width / 2, // right
+    height / 2, // top
+    height / -2, // bottom
+    0, // near plane
+    100 // far plane
+  );
+  camera.position.set(10, y, 10);
   camera.lookAt(-2, 0, -2);
   gameEnded = true;
   end.style = "display: flex";
