@@ -111,8 +111,10 @@ function generateBox(x, y, z, width, depth, falls) {
   };
 }
 
-window.addEventListener("click" || "touchstart", () => {
+window.addEventListener("mousedown", startGame);
+window.addEventListener("touchstart", startGame);
 
+function startGame(){
   if (gameEnded) return;
 
   if (!gameStarted) {
@@ -133,7 +135,7 @@ window.addEventListener("click" || "touchstart", () => {
     if (overlap > 0) {
       scoreElement.innerText = stack.length - 1;
       new Audio('./plink.mp3').play();
-      
+
       cutBox(topLayer, overlap, size, delta);
 
       //Overhang
@@ -161,7 +163,7 @@ window.addEventListener("click" || "touchstart", () => {
       missedTheSpot();
     }
   }
-});
+}
 
 function cutBox(topLayer, overlap, size, delta) {
   const direction = topLayer.direction;
