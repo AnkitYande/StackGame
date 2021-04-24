@@ -51,7 +51,7 @@ function init() {
 
   //Set up camera
   const aspect = window.innerWidth / window.innerHeight;
-  const width = 20;
+  const width = window.innerWidth > window.innerHeight ? 20 : 10;
   const height = width / aspect;
   camera = new THREE.OrthographicCamera(
     width / -2, // left
