@@ -231,7 +231,7 @@ function missedTheSpot() {
 function endGame() {
   const y = camera.position.y
   const aspect = window.innerWidth / window.innerHeight;
-  const height = window.innerWidth > window.innerHeight ? (y/2 +12)/aspec : 20;
+  const height = window.innerWidth > window.innerHeight ? (y/2 +12)/aspect : 20;
   const width = height * aspect;
   camera = new THREE.OrthographicCamera(
     width / -2, // left
